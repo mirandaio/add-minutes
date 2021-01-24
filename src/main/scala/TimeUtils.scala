@@ -1,10 +1,9 @@
 object TimeUtils {
   val minutesInADay = 1440
 
-  def addMinutes(timeString: String, minutes: Int): String = {
-    val minutesToAdd = minutes % minutesInADay
-    var result = (minutesSinceMidnight(timeString) + minutesToAdd) % minutesInADay
-    minutesToString(if (result < 0) minutesInADay + result else result)
+  def addMinutes(timeString: String, minutesToAdd: Int): String = {
+    val minutes = (minutesSinceMidnight(timeString) + minutesToAdd) % minutesInADay
+    minutesToString(if (minutes < 0) minutesInADay + minutes else minutes)
   }
 
   def minutesSinceMidnight(timeString: String): Int = {
