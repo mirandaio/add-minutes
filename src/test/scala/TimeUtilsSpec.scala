@@ -33,4 +33,10 @@ class TimeUtilsSpec extends AnyFlatSpec with Matchers {
   it should "handle going back multiple days" in {
     TimeUtils.addMinutes("1:20 PM", -2990) should equal("11:30 AM")
   }
+  it should "handle adding up to noon" in {
+    TimeUtils.addMinutes("11:40 AM", 20) should equal("12:00 PM")
+  }
+  it should "handle going back to noon" in {
+    TimeUtils.addMinutes("1:20 PM", -80) should equal("12:00 PM")
+  }
 }
